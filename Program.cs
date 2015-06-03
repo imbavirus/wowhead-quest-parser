@@ -26,7 +26,10 @@ namespace WowHeadQuestRipper
             string[] m_id_raw_name = new string[] { "npc", "npc", "object", "object", "item", "item" };
             string[] m_id_DB_name = new string[] { "creature_queststarter", "creature_questender", "gameobject_queststarter", "gameobject_questender", "item_queststarter", "item_questender" };
             Console.WriteLine("ProjectCoreDevs Wowhead Quest parser");
+            Console.WriteLine();
             StreamWriter file = File.CreateText("Quest.sql");
+            Console.WriteLine("File 'Quest.Sql' create successfull !");
+            Console.WriteLine();
         menu:
             Console.WriteLine("Select parser type:");
             Console.WriteLine("0 - Creature quest start");
@@ -36,6 +39,9 @@ namespace WowHeadQuestRipper
             Console.WriteLine("4 - Item quest start");
             Console.WriteLine("5 - Item quest end");
             Console.WriteLine("6 - Exit");
+            Console.WriteLine();
+            Console.WriteLine("WARNING : Before choose the parse type, change the 'quest.sql' name for don't lose your precedent parse file !");
+            Console.WriteLine();
 
             m_readString = Console.ReadLine();
 
@@ -57,8 +63,10 @@ namespace WowHeadQuestRipper
                 Environment.Exit(0);
             }
 
+            Console.WriteLine();
             Console.WriteLine("Enter {0} Id:", m_id_name[m_type]);
             m_readString = Console.ReadLine();
+            Console.WriteLine();
 
             if (!uint.TryParse(m_readString, out m_id))
             {
